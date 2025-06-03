@@ -652,10 +652,10 @@ class AjaxFacturas {
                         "nombre" => $empresa["nombre"],
                         "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
                         "nomEstablecimiento" => $empresa["nombre"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "telefono" => $empresa["telefono"],
                         "correo" => $empresa["correo"]                    
                     ],
@@ -952,10 +952,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -1180,10 +1180,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -1387,10 +1387,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -1595,10 +1595,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -1815,10 +1815,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -2022,10 +2022,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -2223,10 +2223,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -2428,10 +2428,10 @@ class AjaxFacturas {
                         ],
                         "telefono" => $empresa["telefono"],
                         "correo" => $empresa["correo"],
-                        "codEstableMH" => M001,
-                        "codEstable" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstableMH" => "M001",
+                        "codEstable" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "tipoItemExpor" => 1, // Solo para vender bienes
                         "recintoFiscal" => $factura["recintoFiscal"],
                         "regimen" => $factura["regimen"],
@@ -2625,10 +2625,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "sujetoExcluido" => [
@@ -4146,10 +4146,10 @@ class AjaxFacturas {
                             "descActividad" => $empresa["desActividad"],
                             "nombreComercial" => null,
                             "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                            "codEstableMH" => M001,
-                            "codEstable" => M001,
-                            "codPuntoVentaMH" => P001,
-                            "codPuntoVenta" => P001,
+                            "codEstableMH" => "M001",
+                            "codEstable" => "M001",
+                            "codPuntoVentaMH" => "P001",
+                            "codPuntoVenta" => "P001",
                             "direccion" => [
                                 "departamento" => $empresa["departamento"],
                                 "municipio" => $empresa["municipio"],
@@ -4345,10 +4345,10 @@ class AjaxFacturas {
                             "descActividad" => $empresa["desActividad"],
                             "nombreComercial" => null,
                             "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                            "codEstableMH" => M001,
-                            "codEstable" => M001,
-                            "codPuntoVentaMH" => P001,
-                            "codPuntoVenta" => P001,
+                            "codEstableMH" => "M001",
+                            "codEstable" => "M001",
+                            "codPuntoVentaMH" => "P001",
+                            "codPuntoVenta" => "P001",
                             "direccion" => [
                                 "departamento" => $empresa["departamento"],
                                 "municipio" => $empresa["municipio"],
@@ -4544,10 +4544,10 @@ class AjaxFacturas {
                             "descActividad" => $empresa["desActividad"],
                             "nombreComercial" => null,
                             "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                            "codEstableMH" => M001,
-                            "codEstable" => M001,
-                            "codPuntoVentaMH" => P001,
-                            "codPuntoVenta" => P001,
+                            "codEstableMH" => "M001",
+                            "codEstable" => "M001",
+                            "codPuntoVentaMH" => "P001",
+                            "codPuntoVenta" => "P001",
                             "direccion" => [
                                 "departamento" => $empresa["departamento"],
                                 "municipio" => $empresa["municipio"],
@@ -4738,10 +4738,10 @@ class AjaxFacturas {
                             "descActividad" => $empresa["desActividad"],
                             "nombreComercial" => null,
                             "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                            "codEstableMH" => M001,
-                            "codEstable" => M001,
-                            "codPuntoVentaMH" => P001,
-                            "codPuntoVenta" => P001,
+                            "codEstableMH" => "M001",
+                            "codEstable" => "M001",
+                            "codPuntoVentaMH" => "P001",
+                            "codPuntoVenta" => "P001",
                             "direccion" => [
                                 "departamento" => $empresa["departamento"],
                                 "municipio" => $empresa["municipio"],
@@ -4926,10 +4926,10 @@ class AjaxFacturas {
                             "descActividad" => $empresa["desActividad"],
                             "nombreComercial" => null,
                             "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                            "codEstableMH" => M001,
-                            "codEstable" => M001,
-                            "codPuntoVentaMH" => P001,
-                            "codPuntoVenta" => P001,
+                            "codEstableMH" => "M001",
+                            "codEstable" => "M001",
+                            "codPuntoVentaMH" => "P001",
+                            "codPuntoVenta" => "P001",
                             "direccion" => [
                                 "departamento" => $empresa["departamento"],
                                 "municipio" => $empresa["municipio"],
@@ -5114,10 +5114,10 @@ class AjaxFacturas {
                             "descActividad" => $empresa["desActividad"],
                             "nombreComercial" => null,
                             "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                            "codEstableMH" => M001,
-                            "codEstable" => M001,
-                            "codPuntoVentaMH" => P001,
-                            "codPuntoVenta" => P001,
+                            "codEstableMH" => "M001",
+                            "codEstable" => "M001",
+                            "codPuntoVentaMH" => "P001",
+                            "codPuntoVenta" => "P001",
                             "direccion" => [
                                 "departamento" => $empresa["departamento"],
                                 "municipio" => $empresa["municipio"],
@@ -5318,10 +5318,10 @@ class AjaxFacturas {
                         "descActividad" => $empresa["desActividad"],
                         "nombreComercial" => null,
                         "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                        "codEstableMH" => M001,
-                        "codEstable" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstableMH" => "M001",
+                        "codEstable" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "direccion" => [
                             "departamento" => $empresa["departamento"],
                             "municipio" => $empresa["municipio"],
@@ -5517,10 +5517,10 @@ class AjaxFacturas {
                         "descActividad" => $empresa["desActividad"],
                         "nombreComercial" => null,
                         "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                        "codEstableMH" => M001,
-                        "codEstable" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstableMH" => "M001",
+                        "codEstable" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "direccion" => [
                             "departamento" => $empresa["departamento"],
                             "municipio" => $empresa["municipio"],
@@ -5716,10 +5716,10 @@ class AjaxFacturas {
                         "descActividad" => $empresa["desActividad"],
                         "nombreComercial" => null,
                         "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                        "codEstableMH" => M001,
-                        "codEstable" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstableMH" => "M001",
+                        "codEstable" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "direccion" => [
                             "departamento" => $empresa["departamento"],
                             "municipio" => $empresa["municipio"],
@@ -6045,10 +6045,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -6251,10 +6251,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -6457,10 +6457,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -6673,10 +6673,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -6880,10 +6880,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -7079,10 +7079,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "receptor" => [
@@ -7279,10 +7279,10 @@ class AjaxFacturas {
                         ],
                         "telefono" => $empresa["telefono"],
                         "correo" => $empresa["correo"],
-                        "codEstableMH" => M001,
-                        "codEstable" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstableMH" => "M001",
+                        "codEstable" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "tipoItemExpor" => 1, // Solo para vender bienes
                         "recintoFiscal" => $factura["recintoFiscal"],
                         "regimen" => $factura["regimen"],
@@ -7472,10 +7472,10 @@ class AjaxFacturas {
                             "complemento" => $empresa["direccion"]
                         ],
                         "telefono" => $empresa["telefono"],
-                        "codEstable" => M001,
-                        "codEstableMH" => M001,
-                        "codPuntoVentaMH" => P001,
-                        "codPuntoVenta" => P001,
+                        "codEstable" => "M001",
+                        "codEstableMH" => "M001",
+                        "codPuntoVentaMH" => "P001",
+                        "codPuntoVenta" => "P001",
                         "correo" => $empresa["correo"]
                     ],
                     "sujetoExcluido" => [
@@ -7656,8 +7656,8 @@ class AjaxFacturas {
                         "tipoDocResponsable" => "36",
                         "numeroDocResponsable" => $empresa["nit"],
                         "tipoEstablecimiento" => $empresa["tipoEstablecimiento"],
-                        "codEstableMH" => M001,
-                        "codPuntoVenta" => P001,
+                        "codEstableMH" => "M001",
+                        "codPuntoVenta" => "P001",
                         "telefono" => $empresa["telefono"],
                         "correo" => $empresa["correo"]
                     ],
