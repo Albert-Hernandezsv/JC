@@ -123,7 +123,7 @@ $(document).ready(function() {
 
 	// Detectar el evento de cambio en el input
     $('#productosContainer').on('change', '.codigoProducto', function() {
-        var codigoProducto = $(this).val().trim(); // Obtiene el código ingresado en minúsculas y lo limpia de espacios
+        var codigoProducto = $(this).val(); // Obtiene el código ingresado en minúsculas y lo limpia de espacios
         console.log('Código ingresado:', codigoProducto); // Verifica el código ingresado
 
 		const parentRow = $(this).closest('.row');
