@@ -121,92 +121,96 @@ AGREGAR PRECIO SIN IVA A PRODUCTO A FACTURA
 =============================================*/  
 $(document).ready(function() {
 
-	// Detectar el evento de cambio en el input
-    $('#productosContainer').on('change', '.codigoProducto', function() {
-        var codigoProducto = $(this).val(); // Obtiene el código ingresado en minúsculas y lo limpia de espacios
-        console.log('Código ingresado:', codigoProducto); // Verifica el código ingresado
+	$('#productosContainer').on('change', '.codigoProducto', function() {
+    const codigoProducto = $(this).val().trim();
+    const parentRow = $(this).closest('.row');
+    const select = parentRow.find('.seleccionarProductoFactura');
 
-		const parentRow = $(this).closest('.row');
-        var select = parentRow.find('select[name="nuevoIdProductoFactura[]"]');
-        var options = select.find('option');
+    if (codigoProducto === '') return;
 
-        // Desmarcar cualquier opción previamente seleccionada
-        select.val(""); 
+    $.ajax({
+        url: 'ajax/productos.ajax.php',
+        method: 'POST',
+        data: { validarCodigo: codigoProducto }, // usa la función ya existente
+        dataType: 'json',
+        success: function(respuesta) {
+            if (respuesta) {
 
-        var encontrado = false; // Indicador de si se encontró una coincidencia
-        options.each(function() {
-            var codigoOption1 = $(this).data('codigo'); // Obtiene el código de la opción
-            var codigoOption = String(codigoOption1);// Obtiene el código de la opción
+                // Construir la opción con todos los data-
+                const optionHTML = `
+                    <option 
+                        value="${respuesta.id}" 
+                        selected
+                        data-value="${respuesta.id}"
+                        data-codigo="${respuesta.codigo}"
+                        data-precio="${respuesta.precio_venta}"
+                        data-marca="${respuesta.marca}"
+                        data-modelo="${respuesta.modelo}"
+                        data-origen="${respuesta.origen}"
+                        data-peso="${respuesta.peso}"
+                        data-exento="${respuesta.exento_iva}"
+                    >
+                        ${respuesta.nombre} (${respuesta.codigo})
+                    </option>`;
 
-            // Verifica que el código de la opción y el código ingresado no sean undefined o vacíos
-            if (codigoOption && codigoProducto) {
-                console.log('Código de producto:', codigoOption); // Verifica el código de cada opción
+                // Insertar la opción en el select
+                select.html(optionHTML).trigger('change');
 
-                // Si el código ingresado coincide con el de la opción, selecciona esa opción
-                if(codigoOption === codigoProducto){
-                    $(this).prop('selected', true); // Marca la opción como seleccionada
-                    select.val($(this).val()); // Actualiza el valor del select
-                    encontrado = true; // Marca que ya encontramos una coincidencia
+                // Ahora puedes seguir usando tu misma lógica
+                const selectedOption = select.find('option:selected');
 
-					// Obtener el precio del producto seleccionado
-					const selectedOption = select.find('option:selected');
-					const idProducto = selectedOption.data('value');
-					const precioVenta = selectedOption.data('precio');
-					const codigo = selectedOption.data('codigo');
-					const exentoIva= selectedOption.data('exento');
-					const peso = selectedOption.data('peso');
-					const origen = selectedOption.data('origen');
-					const marca = selectedOption.data('marca');
-					const modelo = selectedOption.data('modelo');
+                const precioVenta = parseFloat(selectedOption.data('precio'));
+                const exentoIva = selectedOption.data('exento');
 
-					// Buscar los campos en la misma fila
-					
-					const cantidadOriginal = parentRow.find('input[name="nuevaCantidadProductoFactura[]"]');
-					const precioOriginalField = parentRow.find('input[name="nuevoPrecioProductoFacturaOriginal[]"]');
-					const ivaField = parentRow.find('input[name="nuevoIvaProductoFactura[]"]');
-					const totalField = parentRow.find('input[name="nuevoTotalProductoFacturaIndividual[]"]');
-					const totalFieldSin = parentRow.find('input[name="nuevoTotalProductoFacturaIndividualSin[]"]');
-					const pesoInput = parentRow.find('input[name="peso[]"]');
-					const origenInput = parentRow.find('input[name="origen[]"]');
-					const marcaInput = parentRow.find('input[name="marca[]"]');
-					const modeloInput = parentRow.find('input[name="modelo[]"]');
+                // Buscar los campos en la misma fila
+                const cantidadOriginal = parentRow.find('input[name="nuevaCantidadProductoFactura[]"]');
+                const precioOriginalField = parentRow.find('input[name="nuevoPrecioProductoFacturaOriginal[]"]');
+                const ivaField = parentRow.find('input[name="nuevoIvaProductoFactura[]"]');
+                const totalField = parentRow.find('input[name="nuevoTotalProductoFacturaIndividual[]"]');
+                const totalFieldSin = parentRow.find('input[name="nuevoTotalProductoFacturaIndividualSin[]"]');
+                const pesoInput = parentRow.find('input[name="peso[]"]');
+                const origenInput = parentRow.find('input[name="origen[]"]');
+                const marcaInput = parentRow.find('input[name="marca[]"]');
+                const modeloInput = parentRow.find('input[name="modelo[]"]');
 
-					
-					pesoInput.val(peso);
-					origenInput.val(origen);
-					marcaInput.val(marca);
-					modeloInput.val(modelo);
-					
-					// Actualizar los campos de precio y total
-					precioOriginalField.val(precioVenta);
-					
-					const precioConIva = (precioVenta * 1.13).toFixed(4); // Suponiendo un IVA del 13%
-					const precioSinIva = (precioVenta).toFixed(4); // Suponiendo un IVA del 13%
-					cantidadOriginal.val(1);
-					if(exentoIva == "no"){
-						ivaField.val(precioConIva);
-						totalField.val(precioConIva);
-					} else {
-						ivaField.val(precioVenta);
-						totalField.val(precioSinIva);
-					}
-					
-					totalFieldSin.val(precioSinIva);
+                // Llenar datos
+                pesoInput.val(selectedOption.data('peso'));
+                origenInput.val(selectedOption.data('origen'));
+                marcaInput.val(selectedOption.data('marca'));
+                modeloInput.val(selectedOption.data('modelo'));
+                precioOriginalField.val(precioVenta.toFixed(4));
+                cantidadOriginal.val(1);
 
-					// Actualizar el total de la factura
-					actualizarTotalFactura();
+                const precioConIva = (exentoIva === 'no')
+                    ? (precioVenta * 1.13).toFixed(4)
+                    : precioVenta.toFixed(4);
 
+                ivaField.val(precioConIva);
+                totalField.val(precioConIva);
+                totalFieldSin.val(precioVenta.toFixed(4));
 
+                // Actualiza totales generales
+                if (typeof actualizarTotalFactura === "function") {
+                    actualizarTotalFactura();
                 }
-                
-            }
-        });
 
-        // Si no se encuentra una coincidencia, el select vuelve a su estado original
-        if (!encontrado) {
-            select.val(""); // Deselecciona cualquier opción si no hay coincidencias
+            } else {
+                // Producto no encontrado
+                select.html('<option value="">Producto no encontrado</option>');
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Producto no encontrado',
+                    text: 'El código ingresado no existe en la base de datos.'
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error en AJAX:", error);
         }
     });
+});
+
+
 
     var count = parseInt($("#contador").val(), 10);
 	
