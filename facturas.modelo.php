@@ -36,6 +36,34 @@ class ModeloFacturas{
 
 	}
 
+	static public function mdlMostrarFacturasFac($tabla, $item, $valor, $orden){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item ORDER BY id DESC LIMIT 50");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC LIMIT 50");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 	static public function mdlMostrarFacturasVarias($tabla, $item, $valor, $orden){
 
 		if($item != null){
@@ -491,6 +519,24 @@ class ModeloFacturas{
 		$stmt->bindParam(":codigoGeneracion", $datos["codigoGeneracion"], PDO::PARAM_STR);
 		$stmt->bindParam(":horEmi", $datos["horEmi"], PDO::PARAM_STR);
 		$stmt->bindParam(":fecEmi", $datos["fecEmi"], PDO::PARAM_STR);
+
+        if($stmt->execute()) {
+            return "ok";    
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
+        $stmt = null;
+    }
+
+	static public function mdlIngresarAuditoria($tabla, $datos) {
+
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(numero_anterior, numero_asignado, controlador) VALUES (:numero_anterior, :numero_asignado, :controlador)");
+
+		$stmt->bindParam(":numero_anterior", $datos["numero_anterior"], PDO::PARAM_STR);
+		$stmt->bindParam(":numero_asignado", $datos["numero_asignado"], PDO::PARAM_STR);
+        $stmt->bindParam(":controlador", $datos["controlador"], PDO::PARAM_STR);		
 
         if($stmt->execute()) {
             return "ok";    
