@@ -2,73 +2,7 @@
 
 session_start();
 
-date_default_timezone_set('America/El_Salvador');
-$horaActual = date("H"); // Obtiene solo la hora actual (sin minutos)
-$horaProgramada1 = "07"; // Cambia a la hora deseada
-$horaProgramada2 = "11"; // Cambia a la hora deseada
-$horaProgramada3 = "14"; // Cambia a la hora deseada
-$horaProgramada4 = "17"; // Cambia a la hora deseada
 
-if ($horaActual === $horaProgramada1 || $horaActual === $horaProgramada2 || $horaActual === $horaProgramada3 || $horaActual === $horaProgramada4) {
-      // Configuración de la base de datos y directorio de respaldo
-      $host = 'localhost';
-      $usuario = 'root';
-      $password = '';
-      $nombreBaseDatos = 'fox_control';
-      $directorioRespaldo = 'vistas/respaldo-fox/';
-      
-      // Asegúrate de que el directorio de respaldo exista
-      if (!is_dir($directorioRespaldo)) {
-          mkdir($directorioRespaldo, 0777, true);
-      }
-  
-      // Limitar el número de archivos a 5
-      $archivos = glob($directorioRespaldo . '*.sql'); // Obtiene todos los archivos .sql en el directorio
-      if (count($archivos) >= 5) {
-          // Ordena los archivos por fecha de modificación, del más antiguo al más reciente
-          array_multisort(array_map('filemtime', $archivos), SORT_ASC, $archivos);
-  
-          // Elimina el archivo más antiguo
-          unlink($archivos[0]);
-      }
-  
-      // Genera el nombre del nuevo archivo de respaldo
-      $nombreArchivo = $directorioRespaldo . $nombreBaseDatos . '_backup_' . date("Y-m-d_H-i-s") . '.sql';
-  
-      // Crear la copia de seguridad
-      try {
-          $pdo = new PDO("mysql:host=$host;dbname=$nombreBaseDatos", $usuario, $password);
-          $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-          $pdo->exec("SET NAMES utf8");
-  
-          // Genera el contenido del archivo de respaldo
-          $salidaSQL = "";
-          $tablas = $pdo->query("SHOW TABLES");
-  
-          foreach ($tablas as $fila) {
-              $tabla = $fila[0];
-              $estructura = $pdo->query("SHOW CREATE TABLE $tabla")->fetch(PDO::FETCH_ASSOC);
-              $salidaSQL .= "\n\n" . $estructura['Create Table'] . ";\n\n";
-              $datos = $pdo->query("SELECT * FROM $tabla");
-  
-              foreach ($datos as $filaDatos) {
-                  $salidaSQL .= "INSERT INTO $tabla VALUES(";
-                  foreach ($filaDatos as $dato) {
-                      $salidaSQL .= $pdo->quote($dato) . ', ';
-                  }
-                  $salidaSQL = rtrim($salidaSQL, ', ') . ");\n";
-              }
-          }
-  
-          // Guarda el archivo de respaldo
-          file_put_contents($nombreArchivo, $salidaSQL);
-  
-          
-  
-      } catch (PDOException $e) {
-          
-      }
-}
   
 ?>
 
@@ -322,6 +256,7 @@ CUERPO DOCUMENTO
                       $_GET["ruta"] == "crear-factura-sujeto-contingencia" ||
                       $_GET["ruta"] == "crear-nota-remision" ||
                       $_GET["ruta"] == "ver-factura" ||
+                      $_GET["ruta"] == "buscar-en-facturas" ||
                       $_GET["ruta"] == "crear-nota-credito" ||
                       $_GET["ruta"] == "crear-nota-debito" ||
                       $_GET["ruta"] == "anular-dte" ||

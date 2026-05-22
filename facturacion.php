@@ -101,8 +101,19 @@
           Ver cortes de caja
 
         </button>
+        <button class="btn btn-info mt-1" onclick="location.href='buscar-en-facturas'">
+          Buscador de facturas
+        </button>
+
+        <form action="vistas/modulos/respaldo.php" method="post" style="display:inline; border-top: 10px">
+            <button type="submit" class="btn btn-success mt-1">
+                Descargar respaldo de la base de datos
+            </button>
+        </form>
+        
 <br><br>
       </div>
+        
       <div class="box-body">
 
       <div class="row">
